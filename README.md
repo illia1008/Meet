@@ -1,5 +1,9 @@
 # MEET APP
 
+**_MEET_ is a progressive web app (PWA) designed for event discovery, allowing users to view upcoming events in specific cities. Built with a serverless backend and offline capabilities, MEET offers a seamless, responsive experience across devices. Developed using test-driven development (TDD), it ensures code quality and reliability. The app is hosted online for easy access and installation, leveraging serverless architecture and modern data visualization techniques to provide an efficient and engaging user experience. Ideal for professionals, recruiters can view the source code directly on GitHub.**
+
+
+
 ## Feature 1: Filter Events By City
 
 As a user,
