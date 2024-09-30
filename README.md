@@ -6,24 +6,21 @@
 
 ## Feature 1: Filter Events By City
 
-As a user,
-I should be able to filter events by city
-So that I can see a list of events taking place in that city.
+As a user, I should be able to filter events by city so that I can see a list of events taking place in that city.
 
-### Scenario 1
-When user hasn’t searched for a specific city, show upcoming events from all cities.
+### Scenario 1: When user hasn’t searched for a specific city, show upcoming events from all cities.
 
 **Given** user hasn’t searched for any city  
 **When** the user opens the app  
 **Then** the user should see a list of upcoming events
-### Scenario 2
-User should see a list of suggestions when they search for a city.
+
+### Scenario 2: User should see a list of suggestions when they search for a city.
 
 **Given** the main page is open  
 **When** user starts typing in the city textbox  
 **Then** the user should receive a list of cities (suggestions) that match what they’ve typed
-### Scenario 3
-User can select a city from the suggested list.
+
+### Scenario 3: User can select a city from the suggested list.
 
 **Given** user was typing “Berlin” in the city textbox AND the list of suggested cities is showing  
 **When** the user selects a city (e.g., “Berlin, Germany”) from the list  
@@ -31,51 +28,67 @@ User can select a city from the suggested list.
 
 
 ## Feature 2: Show/Hide Event Details
-As a user, I should be able to toggle event details on and off, so that I can quickly access or hide more information as needed without cluttering the screen.
+As a user, I should be able to toggle event details on and off so that I can view more or less information as needed.
 
-### Scenario 1: User toggles event details on
-**Given** I am on the events page  
-**When** I click on the "Show Details" button for an event  
-**Then** I should see the event details expanded for that event
+### Scenario 1: An event element is collapsed by default
+**Given** the user is on the events page
+**When** the page loads
+**Then** each event's details should be collapsed by default
 
-### Scenario 2: User toggles event details off
-**Given** I am viewing expanded event details for an event  
-**When** I click on the "Hide Details" button for that event  
-**Then** I should see the event details collapsed for that event
+### Scenario 2: User can expand an event to see details
+**Given** the event details are collapsed
+**When** the user clicks on the "Show Details" button for an event
+**Then** the event details should expand to show additional information
+
+### Scenario 3: User can collapse an event to hide details
+**Given** the event details are expanded
+**When** the user clicks on the "Hide Details" button for an event
+**Then** the event details should collapse to hide the information
 
 
 ## Feature 3: Specify Number of Events
-As a user, I should be able to specify the number of events I want to see, so that I can customize my event list to fit my needs or device screen size.
+As a user, I should be able to control the number of events displayed so that I can customize my view.
 
-### Scenario: User specifies a number of events to display
-**Given** I am on the events page  
-**When** I select "5" from the "Number of Events" dropdown  
-**Then** I should see only 5 events displayed on the page
+### Scenario 1: When user hasn’t specified a number, 32 events are shown by default
+**Given** the user hasn’t specified the number of events
+**When** the events page loads
+**Then** 32 events should be displayed by default
+
+### Scenario 2: User can change the number of events displayed
+**Given** the user is on the events page
+**When** the user selects a different number from the "Number of Events" dropdown
+**Then** the page should update to display the chosen number of events
 
 
 ## Feature 4: Use the App When Offline
-As a user, I should be able to use the app while offline, so that I can access my event details even without an internet connection.
 
-### Scenario: User accesses app while offline
-**Given** I am offline  
-**When** I open the events app  
-**Then** I should see the events list I last viewed before going offline
-And I should not see a "no internet connection" error
+As a user, I should be able to access previously viewed data while offline so that I can still use the app without an internet connection.
+
+### Scenario 1: Show cached data when there’s no internet connection
+**Given** the user is offline
+**When** the user opens the app
+**Then** the app should display the last available list of events from the cache
+
+### Scenario 2: Show error when user changes search settings (city, number of events)
+**Given** the user is offline
+**When** the user tries to change search settings (e.g., city, number of events)
+**Then** the app should display an error message indicating that there’s no internet connection
 
 
 ## Feature 5: Add an App Shortcut to the Home Screen
-As a user, I should be able to add a shortcut to the app on my home screen, so that I can easily access the app without opening my browser or searching for it.
+As a user, I should be able to add the app to my home screen for quicker access.
 
-### Scenario: User adds app shortcut to home screen
-**Given** I am using the app in a supported mobile browser  
-**When** I click on the "Add to Home Screen" button  
-**Then** I should see a confirmation that the app has been added to my home screen
+### Scenario 1: User can install the MEET app as a shortcut on their device home screen
+**Given** the user is using a supported mobile browser
+**When** the user clicks on the "Add to Home Screen" button
+**Then** the app should be installed as a shortcut on their device’s home screen
 
 
 ## Feature 6: Display Charts Visualizing Event Details
-As a user, I should be able to view charts that visualize event details, so that I can better understand trends and insights from the event data at a glance.
+As a user, I should be able to view charts that summarize event data for quick insights.
 
-### Scenario: User views charts visualizing event details
-**Given** I am viewing the event details page  
-**When** I scroll to the "Charts" section  
-Then I should see charts visualizing the event details, such as attendance and time trends
+### Scenario 1: Show a chart with the number of upcoming events in each city
+**Given** the user is viewing the event details page
+**When** the user scrolls to the "Charts" section
+**Then** a chart should display the number of upcoming events in each city
+

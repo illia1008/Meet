@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import EventList from './components/EventList';
+import CitySearch from './components/CitySearch';
+import NumberOfEvents from './components/NumberOfEvents';
+import { useEffect, useState } from 'react';
+import { extractLocations, getEvents } from './api';
 
-function App() {
+const App = () => {
+  const [events, setEvents] = useState([]);
+  const [currentNOE, setCurrentNOE] = useState(32);
+  const [allLocations, setAllLocations] = useState([]);
+  const [currentCity, setCurrentCity] = useState("See all cities");
+  const [errorAlert, setErrorAlert] = useState("");
+
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CitySearch 
+        allLocations={allLocations} 
+        setCurrentCity={setCurrentCity} 
+      />
+      <EventList 
+        events={events} 
+      />
+      <NumberOfEvents 
+        setErrorAlert={setErrorAlert}
+        currentNOE={currentNOE}
+        setCurrentNOE={setCurrentNOE}
+      />
     </div>
   );
 }
