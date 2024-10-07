@@ -23,21 +23,22 @@ const App = () => {
     setEvents(filteredEvents.slice(0, currentNOE));
     setAllLocations(extractLocations(allEvents));
   }
-  
+
   return (
     <div className="App">
-      <CitySearch 
-        allLocations={allLocations} 
-        setCurrentCity={setCurrentCity} 
-      />
-      <EventList 
-        events={events} 
-      />
-      <NumberOfEvents 
+      <NumberOfEvents
         setErrorAlert={setErrorAlert}
         currentNOE={currentNOE}
         setCurrentNOE={setCurrentNOE}
       />
+      <CitySearch
+        allLocations={allLocations}
+        setCurrentCity={setCurrentCity}
+      />
+      <EventList
+        events={events}
+      />
+
     </div>
   );
 }

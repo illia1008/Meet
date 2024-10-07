@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { render } from '@testing-library/react';
 import mockData from "../mock-data";
 
-const event = mockData[0]; // Use the first event from mock data
+const event = mockData[0];
 
 describe('<Event /> component', () => {
   let EventComponent; // Variable to hold rendered component
