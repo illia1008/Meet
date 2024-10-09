@@ -32,7 +32,7 @@ const checkToken = async (accessToken) => {
 
 export const getEvents = async () => {
   if (window.location.href.startsWith("http://localhost")) {
-    console.log("mockdata:" +JSON.stringify(mockData))
+    // console.log("mockdata:" +JSON.stringify(mockData))
     return mockData;
   }
 

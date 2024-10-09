@@ -4,7 +4,7 @@ const Event = ({ event }) => {
   const [showDetails, setShowDetails] = useState(false);
 
   return (
-    <li className="eventInfo">
+    <li className="event">
       <div className="eventSummary">
         <h2>{event.summary}</h2>
         <p>{event.location}</p>
