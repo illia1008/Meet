@@ -19,7 +19,7 @@ const App = () => {
     if (navigator.onLine) {
       setWarningAlert("");
     } else {
-      setWarningAlert("You are currently offline. Some features may not be available.");
+      setWarningAlert("You are currently offline.");
     }
     fetchData();
   }, [currentCity, currentNOE]);
@@ -38,7 +38,7 @@ const App = () => {
       <div className="alerts-container">
         {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
         {errorAlert.length ? <ErrorAlert text={errorAlert}/> : null}
-        {warningAlert.length ? <ErrorAlert text={warningAlert}/> : null}
+        {warningAlert.length ? <WarningAlert text={warningAlert}/> : null}
       </div>
 
       <NumberOfEvents
